@@ -1,0 +1,105 @@
+:root {
+    --primario: #fff;
+    --primarioOscuro: #1c1d1f;
+    --secundario: #F2F076;
+    --secundarioOscuro: rgb(233, 287, 2);
+    --blanco: #fff;
+    --negro: #000;
+    --fuentePrincipal:'Roboto', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--fuentePrincipal);
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.header{
+    background-color: var(--blanco);
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+}
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.nav{
+    --state--close: scale(0);/*EL ESTADO DE CLOSE SERA DE CERO, NO SE VA A VER*/
+    --state--burguer: scale(1);/*SE VA A MOSTRAR*/
+    --state--menu: translate(-100%);
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+}
+.nav:target{
+    --state--close: scale(1);
+    --state--burguer: scale(0);
+    --state--menu: translate(0);
+}
+.nav__links{
+    position: fixed;
+    background-color: var(--secundario);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+
+    display: grid;
+    align-content: center;
+    gap: 2rem;
+    transform: var(--state--menu);
+    transition: .3s transform;
+    padding-left: 10%;
+}
+.nav__link{
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    color: var(--primarioOscuro);
+    display: block;
+}
+.nav__logo{
+    z-index: 100;
+}
+.nav__burguer,
+.nav__close{
+    cursor: pointer;
+    grid-column: -2/-1;
+    grid-row: 1/2;
+    transition: .4s transform;
+}
+.nav__burguer{
+    transform: var(--state--burguer);
+}
+.nav__close{
+    transform: var(--state--close);
+}
+.nav__burguer i,
+.nav__close i{
+    font-size: 40px;
+    color: var(--negro);
+    transition: .4s transform;
+}
+/*main*/
+.main{
+    margin-top: 100px;
+    display: grid;
+    gap: 1rem;
+}
+.blog{
+    scroll-margin-top: 11ex;
+}
